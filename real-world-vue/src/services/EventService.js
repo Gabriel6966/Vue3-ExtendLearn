@@ -1,3 +1,6 @@
+//API CALLS
+
+
 import axios from "axios"
 
 //Entera Axio instancia para la app,la unica que se crea
@@ -13,8 +16,10 @@ const apiClient = axios.create({
 })
 
 export default{
-    getEvents(){
-        return apiClient.get('/events')
+    getEvents(perPage, page){
+        //En la Query puedes hacer un {{$route.query.page}
+        //Mirar bien variables
+        return apiClient.get('/events?_per_page='+ perPage + '&_page=' + page)
     },
     getEvent(id){
         return apiClient.get('/events/' + id)
