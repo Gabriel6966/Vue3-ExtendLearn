@@ -1,11 +1,9 @@
-<script setup>
+<script setup lang="ts">
 //Aqui llamamos al padre(layout.vue)
-const props =defineProps(["event"])
+const props = defineProps(['event'])
 </script>
 
 <template>
-
-        <p>{{event.time}} on {{event.date}} @ {{event.location}}</p>
-        <p>{{event.description}}</p>
-
+  <p>{{ event.time }} on {{ event.date }} @ {{ event.location }}</p>
+  <p>{{ event.description }}</p>
 </template>
