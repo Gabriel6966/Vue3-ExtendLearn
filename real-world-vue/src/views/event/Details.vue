@@ -1,13 +1,5 @@
 <script setup lang="ts">
-//Lo mismo clase
-interface Event {
-  id: number
-  title: string
-  time: string
-  date: string
-  location: string
-  description: string
-}
+import type { Event } from '@/types/Event'
 
 defineProps<{
   event: Event

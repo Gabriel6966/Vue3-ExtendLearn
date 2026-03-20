@@ -3,7 +3,7 @@ import { ref, onMounted, watch, computed } from 'vue'
 import EventServices from '../services/EventService.js'
 import EventCard from '../components/EventCard.vue'
 import { useRouter } from 'vue-router'
-import type { Event } from '@/types/Event.js'
+import type { Event } from '@/types/Event'
 
 //Le pasamos el tipado estricto de ts
 const props = defineProps<{ page: number }>()

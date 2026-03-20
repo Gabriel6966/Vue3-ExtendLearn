@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import { inject } from 'vue'
+import type { Event } from '@/types/Event'
 
-interface Event {
-  id: number
-  title: string
-}
 interface GStoreType {
   flashMessage: string
 }

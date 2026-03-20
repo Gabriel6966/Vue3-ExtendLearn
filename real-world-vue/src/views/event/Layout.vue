@@ -1,17 +1,14 @@
 <!--Padre de details,edit,register,asi no hacemos la llamada a la API 3 veces-->
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, PropType } from 'vue'
 import EventService from '@/services/EventService.js'
 import router from '@/router'
+import type { Event } from '@/types/Event'
 
-interface Event {
-  id: number
-  title: string
-  time: string
-  date: string
-  location: string
-  description: string
-}
+defineProps<{
+  event: Event
+}>()
+//Generic event
 const event = ref<Event | null>(null)
 
 const props = defineProps<{

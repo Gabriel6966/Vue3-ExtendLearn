@@ -1,11 +1,13 @@
 <script setup lang="ts">
-defineProps({
-  resource: {
-    type: String,
-    required: true,
-    default: 'page',
+//En caso de que querramos un valor por defecto le añadimos el withDefaults
+withDefaults(
+  defineProps<{
+    resource?: string
+  }>(),
+  {
+    resource: 'page',
   },
-})
+)
 </script>
 
 <template>

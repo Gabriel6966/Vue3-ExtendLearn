@@ -1,6 +1,11 @@
 <script setup lang="ts">
-//Aqui llamamos al padre(layout.vue)
-const props = defineProps(['event'])
+import type { Event } from '@/types/Event'
+
+defineProps<{
+  event: Event
+}>()
+
+//const props = defineProps(['event'])
 </script>
 
 <template>
