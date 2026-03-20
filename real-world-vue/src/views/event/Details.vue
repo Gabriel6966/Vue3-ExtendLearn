@@ -1,6 +1,17 @@
 <script setup lang="ts">
-//Aqui llamamos al padre(layout.vue)
-const props = defineProps(['event'])
+//Lo mismo clase
+interface Event {
+  id: number
+  title: string
+  time: string
+  date: string
+  location: string
+  description: string
+}
+
+defineProps<{
+  event: Event
+}>()
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { inject } from 'vue'
+
 interface GStoreType {
   flashMessage: string
 }
@@ -10,7 +11,8 @@ const GStore = inject<GStoreType>('GStore')
 <template>
   <div id="layout">
     <header>
-      <div id="flashMessage" v-if="GStore.flashMessage">
+      <!--Añadimos el ? para indicarle si existe hace el msg si no nada-->
+      <div id="flashMessage" v-if="GStore?.flashMessage">
         {{ GStore.flashMessage }}
       </div>
       <div class="wrapper">

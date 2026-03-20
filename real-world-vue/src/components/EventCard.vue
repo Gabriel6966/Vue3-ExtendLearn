@@ -1,10 +1,8 @@
 <script setup lang="ts">
-defineProps({
-  event: {
-    type: Object,
-    required: true,
-  },
-})
+import type { Event } from '@/types/Event.js'
+defineProps<{
+  event: Event
+}>()
 </script>
 
 <template>

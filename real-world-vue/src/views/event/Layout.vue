@@ -4,12 +4,19 @@ import { ref, onMounted } from 'vue'
 import EventService from '@/services/EventService.js'
 import router from '@/router'
 
-const event = ref(null)
-const props = defineProps({
-  id: {
-    required: true,
-  },
-})
+interface Event {
+  id: number
+  title: string
+  time: string
+  date: string
+  location: string
+  description: string
+}
+const event = ref<Event | null>(null)
+
+const props = defineProps<{
+  id: number
+}>()
 
 onMounted(() => {
   //Fetch a un event por su id

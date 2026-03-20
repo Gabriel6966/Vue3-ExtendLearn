@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { ref, onMounted, watch, computed } from 'vue'
-import EventServices from '@/services/EventService.js'
-import EventCard from '@/components/EventCard.vue'
-import { RouterLink, useRouter } from 'vue-router'
+import EventServices from '../services/EventService.js'
+import EventCard from '../components/EventCard.vue'
+import { useRouter } from 'vue-router'
+import type { Event } from '@/types/Event.js'
 
-const props = defineProps(['page'])
-const events = ref([])
+//Le pasamos el tipado estricto de ts
+const props = defineProps<{ page: number }>()
+const events = ref<Event[] | null>(null)
 const router = useRouter()
 
 const totalEventos = ref(0)
