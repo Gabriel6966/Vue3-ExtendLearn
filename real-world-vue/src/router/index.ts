@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '../views/EventListView.vue'
 import EventLayout from '../views/event/Layout.vue'
+import Todo from '../views/Todo.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       component: EventListView,
       //Al poner el 1 entra en la primera pagina y tambien le decimos que no se vea feo el URL
       props: (route) => ({ page: parseInt(route.query.page as string) || 1 }),
+    },
+    {
+      path: '/todo',
+      name: 'Todo',
+      component: Todo,
     },
     {
       path: '/events/:id',

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { inject } from 'vue'
+import router from './router'
+import Todo from './views/Todo.vue'
 
 interface GStoreType {
   flashMessage: string
@@ -18,7 +20,8 @@ const GStore = inject<GStoreType>('GStore')
       <div class="wrapper">
         <nav>
           <RouterLink :to="{ name: 'event-list' }">Events</RouterLink> |
-          <RouterLink :to="{ name: 'about' }">About</RouterLink>
+          <RouterLink :to="{ name: 'about' }">About</RouterLink> |
+          <RouterLink :to="{ name: 'Todo' }">Todo</RouterLink>
         </nav>
       </div>
     </header>
