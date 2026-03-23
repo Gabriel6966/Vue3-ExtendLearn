@@ -16,4 +16,6 @@ export interface TodoItem {
   label: string
   type: TaskType
   isComplete: boolean
+  //Union type significa que solo puede ser uno de las tres opciones
+  priority: 'alto' | 'mediano' | 'bajo'
 }

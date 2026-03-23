@@ -54,7 +54,7 @@ h2 {
   font-size: 20px;
 }
 
-/* 1. La animación: hace que el color amarillo se desvanezca poco a poco */
+/**Animacion difuminado */
 @keyframes yellowfade {
   from {
     background: yellow;

@@ -9,6 +9,7 @@ export default defineComponent({
       newTask: {
         label: '',
         type: 'personal',
+        priority: 'mediano',
       } as TodoItem,
       taskItems: [] as TodoItem[],
       listFilter: 'all',
@@ -61,11 +62,17 @@ export default defineComponent({
       <button @click="listFilter = 'incomplete'">Incompletas</button>
     </div>
 
+    <select v-model="newTask.priority">
+      <option value="alto">Alta</option>
+      <option value="mediano">Media</option>
+      <option value="bajo">Baja</option>
+    </select>
+
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
         <input type="checkbox" v-model="task.isComplete" />
         <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
-          {{ task.label }} - {{ task.type }}
+          {{ task.label }} - {{ task.type }} -{{ task.priority }}
         </span>
       </li>
     </ul>
