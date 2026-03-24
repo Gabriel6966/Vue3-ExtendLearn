@@ -27,10 +27,17 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      const label = state.newTask.label.trim();
+      // Input validation: prevent empty and overly long tasks
+      if (!label || label.length > 100) {
+        return;
+      }
       state.taskItems.push({
         ...state.newTask,
+        label,
         isComplete: false,
       })
+      state.newTask.label = ''; // Clear input after adding
     }
 
     return {
