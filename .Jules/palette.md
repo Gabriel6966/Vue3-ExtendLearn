@@ -1,0 +1,3 @@
+## 2024-05-19 - Wrapping list item checkboxes in accessible native labels
+**Learning:** In Vue apps (and web apps in general), users often have to struggle clicking a tiny checkbox to toggle a task status. Wrapping custom check elements in a native `<label>` implicitly increases the hit area to the full container (checkbox + label text) without requiring complex JS click handlers, providing a great, accessible pattern for list items.
+**Action:** When reviewing list items with checkboxes or radios, always check if they are wrapped in a `<label>` tag to improve the click area and overall accessibility on both desktop and mobile devices.
