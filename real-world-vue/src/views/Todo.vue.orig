@@ -27,17 +27,10 @@ export default defineComponent({
     })
 
     const addTask = () => {
-      const label = state.newTask.label.trim();
-      // Input validation: prevent empty and overly long tasks
-      if (!label || label.length > 100) {
-        return;
-      }
       state.taskItems.push({
         ...state.newTask,
-        label,
         isComplete: false,
       })
-      state.newTask.label = ''; // Clear input after adding
     }
 
     return {
@@ -54,12 +47,12 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" aria-label="Nueva tarea" />
-      <select v-model="newTask.type" aria-label="Tipo de tarea">
+      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
-      <button @click="addTask" :disabled="!newTask.label.trim()">Añadir</button>
+      <button @click="addTask">Añadir</button>
     </div>
 
     <div>
@@ -70,12 +63,10 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
-          <input type="checkbox" v-model="task.isComplete" />
-          <span :style="task.isComplete ? 'text-decoration:line-through' : ''">
-            {{ task.label }} - {{ task.type }}
-          </span>
-        </label>
+        <input type="checkbox" v-model="task.isComplete" />
+        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
+          {{ task.label }} - {{ task.type }}
+        </span>
       </li>
     </ul>
   </div>
