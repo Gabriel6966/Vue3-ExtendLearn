@@ -1,10 +1,54 @@
 @import './base.css';
 
-#app {
+
+:root{
+  --color-background: #1e293b !important;
+  --vt-c-white: #1e293b !important;
+
+  --color-text: #f1f5f9 !important;
+  --color-heading: #ffffff !important;
+  --color-border: #334155 !important;
+}
+
+@media(prefers-color-scheme: dark){
+  :root{
+    --color-background: #1e293b !important;
+  }
+}
+
+body{
+  background-color: var(--color-background) !important;
+  margin: 0;
+  color:var(--color-text) !important;
+  transition: background-color 0.3s ease;
+
+}
+#layout {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+
+  h1,h2,h3{
+    color: var(--color-heading);
+    margin-bottom: 1rem;
+  }
+  a{
+    color: #94a3b8;
+    &:hover{
+      color:#ffffff
+    }
+  }
+  .green{
+    color:#42b883;
+    font-weight: bold;
+  }
+  .layout-container{
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0,0.03);
+    padding: 20px;
+  }
 }
 
 a,
@@ -13,23 +57,29 @@ a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
+  /*Ponemos dentro el hover por que usamos nesting*/
+  &:hover{
     background-color: hsla(160, 100%, 37%, 0.2);
   }
+}
+.events{
+  border: 1px solid var(--color-border);
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255,255,0.05);
+  margin-bottom: 10px;
 }
 
 @media (min-width: 1024px) {
   body {
     display: flex;
     place-items: center;
+    min-height: 100vh;
   }
 
-  #app {
+  #layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding: 0 2rem;
   }
 }
