@@ -24,7 +24,8 @@ defineProps<{
   margin-bottom: 18px;
 }
 
-.event-card:hover {
+.event-card:hover,
+.event-link:focus-visible .event-card {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
@@ -32,5 +33,11 @@ defineProps<{
 .event-link {
   color: #2c3e50;
   text-decoration: none;
+  border-radius: 4px; /* for focus ring outline */
+}
+
+.event-link:focus-visible {
+  outline: 2px solid #42b983; /* Use brand color */
+  outline-offset: 4px;
 }
 </style>
