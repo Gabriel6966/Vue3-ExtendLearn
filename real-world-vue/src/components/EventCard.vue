@@ -22,6 +22,7 @@ defineProps<{
   cursor: pointer;
   border: 1px solid #39495c;
   margin-bottom: 18px;
+  transition: all 0.2s linear;
 }
 
 .event-card:hover {
@@ -29,8 +30,16 @@ defineProps<{
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
+.event-link:focus-visible .event-card {
+  outline: 2px solid #42b983;
+  outline-offset: 4px;
+  transform: scale(1.01);
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
 .event-link {
   color: #2c3e50;
   text-decoration: none;
+  outline: none;
 }
 </style>
