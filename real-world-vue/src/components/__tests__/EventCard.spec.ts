@@ -36,6 +36,8 @@ describe('EventCard.vue', () => {
   //Prueba2
   it('enlaces a evnetos', () => {
     const prueba2 = {
+      //Ponemos id 999 para asegurarnos que en caso de que alguien pase por parametro un 2 en vez de su event.id
+      //para que no nos salte el error
       id: 999,
       title: 'Evento segundo',
       time: '6:00 PM',
