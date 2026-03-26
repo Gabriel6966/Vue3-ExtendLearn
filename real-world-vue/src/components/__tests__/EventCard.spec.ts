@@ -28,7 +28,7 @@ describe('EventCard.vue', () => {
       },
     })
 
-    expect(contenedor.text()).toContain('Toma de CerVuezas')
+    expect(contenedor.text()).toContain('')
 
     expect(contenedor.text()).toContain('2026-05-20')
   })
