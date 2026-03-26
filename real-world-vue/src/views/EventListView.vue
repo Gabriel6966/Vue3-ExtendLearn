@@ -71,6 +71,7 @@ watch(
   <div class="events" v-if="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
   </div>
+  <div class="events" v-else aria-live="polite">Loading events...</div>
   <div class="pagination">
     <router-link
       id="page-prev"
