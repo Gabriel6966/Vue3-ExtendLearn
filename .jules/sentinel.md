@@ -1,0 +1,4 @@
+## 2024-05-20 - SSRF/Path Traversal via Vue Router Parameters
+**Vulnerability:** Vue Router passes dynamic parameters (like `:id` or `?page=`) as strings. When these are directly concatenated into Axios URLs (e.g., `apiClient.get('/events/' + id)`), it creates a vulnerability where attackers can craft URLs like `?id=../users/1` to traverse paths or perform SSRF if the backend doesn't sanitize.
+**Learning:** This is a common pattern in SPAs where router params directly inform API requests. The developer assumed `id` was a number, but router params are strings.
+**Prevention:** Always use `encodeURIComponent()` when appending dynamic values to API URLs, or better, use the `params` configuration object in Axios (`apiClient.get('/events', { params: { id } })`). Expand TypeScript types in services (e.g., `id: number | string`) to reflect runtime realities from routers.

@@ -18,9 +18,16 @@ export default {
   getEvents(perPage: number, page: number) {
     //En la Query puedes hacer un {{$route.query.page}
     //Mirar bien variables
-    return apiClient.get('/events?_per_page=' + perPage + '&_page=' + page)
+    // 🛡️ Sentinel: Prevent SSRF/Path Traversal by sanitizing dynamic inputs
+    return apiClient.get(
+      '/events?_per_page=' +
+        encodeURIComponent(perPage) +
+        '&_page=' +
+        encodeURIComponent(page),
+    )
   },
-  getEvent(id: number) {
-    return apiClient.get('/events/' + id)
+  getEvent(id: number | string) {
+    // 🛡️ Sentinel: Prevent SSRF/Path Traversal by sanitizing dynamic inputs
+    return apiClient.get('/events/' + encodeURIComponent(id))
   },
 }
