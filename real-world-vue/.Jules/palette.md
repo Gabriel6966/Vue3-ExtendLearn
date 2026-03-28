@@ -1,0 +1,3 @@
+## 2024-03-28 - Missing ARIA Labels on standard HTML inputs in Vue components
+**Learning:** Native HTML form inputs (`<input>`, `<select>`) bound to Vue's `v-model` do not automatically receive accessible labels or names. If there is no explicit `<label>` element associated with the input, it remains inaccessible to screen readers.
+**Action:** When adding or reviewing simple form inputs or drop-downs, always ensure they either have a `for`-linked `<label>` or an `aria-label` attribute describing their purpose, and consider using `:aria-label` for dynamic attributes like list checkboxes.
