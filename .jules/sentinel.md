@@ -1,0 +1,4 @@
+## 2024-05-24 - [Path Traversal/SSRF in Axios Vue Router dynamic parameters]
+**Vulnerability:** API requests were made using unsanitized variables directly constructed from Vue Router string parameters (`$route.params` and `$route.query`) allowing potential Path Traversal or SSRF vulnerabilities.
+**Learning:** Even though Vue TypeScript definitions might imply dynamic parameters are `number`s (e.g. `getEvent(id: number)`), `vue-router` params and queries are actually strings (`string | string[]`). This discrepancy between TypeScript types and runtime behavior allowed unsanitized strings to be appended to API URLs.
+**Prevention:** Always wrap dynamic URL variables (especially those originating from `vue-router` params) in `encodeURIComponent(String(...))` before appending them to an API endpoint string in Axios requests.
