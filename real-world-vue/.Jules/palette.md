@@ -1,0 +1,3 @@
+## 2024-05-24 - Explicit Accessibility Labels for Vue v-model Inputs
+**Learning:** Native HTML form inputs (e.g., `<input>`, `<select>`, `<textarea>`) bound to Vue's `v-model` do not automatically inherit or generate accessible labels. When creating new form controls in this app's components, we must ensure they are accessible to screen readers, especially icon-only buttons or inputs with placeholders but no visible `<label>`.
+**Action:** Always add explicit accessible labels (using `<label for="...">`, `aria-label`, or `aria-labelledby`) to form inputs bound to `v-model` to maintain WCAG accessibility standards across the application.
