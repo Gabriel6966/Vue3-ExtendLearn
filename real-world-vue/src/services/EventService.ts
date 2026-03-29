@@ -18,9 +18,14 @@ export default {
   getEvents(perPage: number, page: number) {
     //En la Query puedes hacer un {{$route.query.page}
     //Mirar bien variables
-    return apiClient.get('/events?_per_page=' + perPage + '&_page=' + page)
+    // 🛡️ Sentinel: Sanitize dynamic parameters to prevent Path Traversal/SSRF
+    const safePerPage = encodeURIComponent(String(perPage))
+    const safePage = encodeURIComponent(String(page))
+    return apiClient.get('/events?_per_page=' + safePerPage + '&_page=' + safePage)
   },
   getEvent(id: number) {
-    return apiClient.get('/events/' + id)
+    // 🛡️ Sentinel: Sanitize dynamic ID to prevent Path Traversal
+    const safeId = encodeURIComponent(String(id))
+    return apiClient.get('/events/' + safeId)
   },
 }
