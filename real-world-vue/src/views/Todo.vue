@@ -48,21 +48,30 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
-      <select v-model="newTask.type">
+      <input
+        v-model="newTask.label"
+        type="text"
+        placeholder="Añadir tarea"
+        aria-label="Nueva tarea"
+      />
+      <select v-model="newTask.type" aria-label="Tipo de tarea">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
-      <button @click="addTask">Añadir</button>
+      <button @click="addTask" aria-label="Añadir nueva tarea">Añadir</button>
     </div>
 
     <div>
-      <button @click="listFilter = 'all'">Todas</button>
-      <button @click="listFilter = 'complete'">Completadas</button>
-      <button @click="listFilter = 'incomplete'">Incompletas</button>
+      <button @click="listFilter = 'all'" aria-label="Mostrar todas las tareas">Todas</button>
+      <button @click="listFilter = 'complete'" aria-label="Mostrar tareas completadas">
+        Completadas
+      </button>
+      <button @click="listFilter = 'incomplete'" aria-label="Mostrar tareas incompletas">
+        Incompletas
+      </button>
     </div>
 
-    <select v-model="newTask.priority">
+    <select v-model="newTask.priority" aria-label="Prioridad de la tarea">
       <option value="alto">Alta</option>
       <option value="mediano">Media</option>
       <option value="bajo">Baja</option>
@@ -70,9 +79,18 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
-          {{ task.label }} - {{ task.type }} -{{ task.priority }}
+        <input
+          type="checkbox"
+          v-model="task.isComplete"
+          :aria-label="
+            'Marcar tarea ' +
+            task.label +
+            ' como ' +
+            (task.isComplete ? 'incompleta' : 'completada')
+          "
+        />
+        <span :style="task.isComplete ? 'text-decoration:line-through' : ''">
+          {{ task.label }} - {{ task.type }} - {{ task.priority }}
         </span>
       </li>
     </ul>
