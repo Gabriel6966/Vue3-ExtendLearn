@@ -1,0 +1,4 @@
+## 2024-05-18 - SSRF and Path Traversal in API Requests via Vue Router Parameters
+**Vulnerability:** Dynamic route parameters (e.g. `perPage`, `page`, `id`) from Vue Router were being concatenated directly into the URL path for Axios API calls in `src/services/EventService.ts`.
+**Learning:** Even if a function expects a parameter to be a `number`, the parameters pulled from `$route.params` or `$route.query` in Vue Router are strings. Appending these strings directly to API URLs without validation or sanitization exposes the application to Path Traversal and SSRF (Server-Side Request Forgery) attacks if an attacker injects crafted strings (like `../` or `&otherParam=`).
+**Prevention:** Always sanitize user input and dynamic router parameters using `encodeURIComponent()` before appending them to URLs for API calls, and ideally validate types (e.g., ensuring an ID is indeed numeric) before making the request.
