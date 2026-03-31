@@ -18,9 +18,15 @@ export default {
   getEvents(perPage: number, page: number) {
     //En la Query puedes hacer un {{$route.query.page}
     //Mirar bien variables
-    return apiClient.get('/events?_per_page=' + perPage + '&_page=' + page)
+    // Security: Sanitize dynamic Vue Router parameters with encodeURIComponent()
+    // to prevent Path Traversal and SSRF vulnerabilities in Axios requests.
+    return apiClient.get(
+      '/events?_per_page=' + encodeURIComponent(perPage) + '&_page=' + encodeURIComponent(page),
+    )
   },
   getEvent(id: number) {
-    return apiClient.get('/events/' + id)
+    // Security: Sanitize dynamic Vue Router parameters with encodeURIComponent()
+    // to prevent Path Traversal and SSRF vulnerabilities in Axios requests.
+    return apiClient.get('/events/' + encodeURIComponent(id))
   },
 }
