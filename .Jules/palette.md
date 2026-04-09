@@ -1,0 +1,3 @@
+## 2024-05-14 - Vue v-model Native Inputs Missing Labels
+**Learning:** Native HTML form inputs (`<input>`, `<select>`, `<textarea>`) bound to Vue's `v-model` do not automatically receive accessible labels or `aria-label` attributes. This can cause screen readers to read them as "edit text" or "combobox" without context, severely hindering accessibility for visually impaired users. In Todo.vue, this caused all filter/new task inputs to lack context.
+**Action:** Always ensure that native inputs using `v-model` are accompanied by either an explicit `<label>` (linked via `id` and `for`) or an `aria-label` attribute if visually hiding the label is desired for layout.
