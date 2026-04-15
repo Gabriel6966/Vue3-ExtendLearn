@@ -1,0 +1,3 @@
+## 2024-05-18 - Improved Form Accessibility and Visual Feedback in Todo.vue
+**Learning:** Native `<input>` and `<select>` elements bound to Vue's `v-model` must have explicit accessible names (e.g., `aria-label`) added manually, as Vue does not generate them automatically. Additionally, CSS typo in dynamic inline styles (`text-decoration:line-trought`) can silently fail visual feedback without any framework warnings.
+**Action:** Always manually verify ARIA labels on form controls in Vue applications and carefully check string literals used in dynamic style bindings for CSS property value typos.
