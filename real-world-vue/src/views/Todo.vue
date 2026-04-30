@@ -48,21 +48,21 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
-      <select v-model="newTask.type">
+      <input aria-label="Nueva tarea" v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <select aria-label="Tipo de tarea" v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
-      <button @click="addTask">Añadir</button>
+      <button aria-label="Añadir tarea" @click="addTask">Añadir</button>
     </div>
 
     <div>
-      <button @click="listFilter = 'all'">Todas</button>
-      <button @click="listFilter = 'complete'">Completadas</button>
-      <button @click="listFilter = 'incomplete'">Incompletas</button>
+      <button aria-label="Mostrar todas las tareas" @click="listFilter = 'all'">Todas</button>
+      <button aria-label="Mostrar tareas completadas" @click="listFilter = 'complete'">Completadas</button>
+      <button aria-label="Mostrar tareas incompletas" @click="listFilter = 'incomplete'">Incompletas</button>
     </div>
 
-    <select v-model="newTask.priority">
+    <select aria-label="Prioridad de la tarea" v-model="newTask.priority">
       <option value="alto">Alta</option>
       <option value="mediano">Media</option>
       <option value="bajo">Baja</option>
@@ -70,8 +70,8 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
+        <input :aria-label="`Marcar como ${task.isComplete ? 'incompleta' : 'completa'} la tarea ${task.label}`" type="checkbox" v-model="task.isComplete" />
+        <span :style="task.isComplete ? 'text-decoration: line-through' : ''">
           {{ task.label }} - {{ task.type }} -{{ task.priority }}
         </span>
       </li>
