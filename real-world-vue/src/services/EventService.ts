@@ -12,6 +12,8 @@ const apiClient = axios.create({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   },
+  // Security: Prevent hanging requests by setting an explicit timeout.
+  timeout: 5000,
 })
 
 export default {
