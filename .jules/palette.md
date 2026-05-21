@@ -1,0 +1,3 @@
+## 2026-05-21 - Improve Todo List Accessibility and Usability
+**Learning:** Wrapping checkboxes and their descriptive text within a <label> tag significantly increases the clickable area, enhancing usability. Additionally, dynamic style bindings in Vue fail silently on typos (e.g., 'line-trought'), so careful verification of CSS property spelling is crucial for providing correct visual feedback (e.g., line-through for completed tasks). Native HTML inputs bound with v-model need explicit aria-labels for screen reader accessibility.
+**Action:** Always wrap checkboxes with their associated text in a <label> tag, meticulously verify CSS spellings in dynamic bindings, and add explicit labels to v-model inputs.
