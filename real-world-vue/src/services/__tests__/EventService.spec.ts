@@ -21,6 +21,22 @@ vi.mock('axios', () => {
 import EventService from '@/services/EventService'
 
 describe('EventService', () => {
+  it('configura axios con el timeout correcto por seguridad', async () => {
+    // Aislamos el mock para capturar los argumentos de create en la importación
+    const axiosCreateSpy = vi.spyOn(axios, 'create')
+
+    // Necesitamos reiniciar los módulos para que EventService se vuelva a importar
+    // y axios.create se ejecute de nuevo con nuestro espía escuchando
+    vi.resetModules()
+
+    await import('@/services/EventService')
+
+    expect(axiosCreateSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        timeout: 5000
+      })
+    )
+  })
   //Se limpia los mocks para que no se coma uno entre otro
   beforeEach(() => {
     vi.clearAllMocks()
