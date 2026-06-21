@@ -8,6 +8,9 @@ const apiClient = axios.create({
   baseURL: 'http://localhost:3000',
   //Autenticacion y configuracion para comunicarnos con nuestro server
   withCredentials: false,
+  // Security: Configured a timeout of 5000ms to prevent hanging requests
+  // and potential client-side Denial of Service (DoS) attacks.
+  timeout: 5000,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
