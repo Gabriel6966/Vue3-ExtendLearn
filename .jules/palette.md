@@ -1,0 +1,3 @@
+## 2026-06-23 - Enhance Checkbox UX and Accessibility
+**Learning:** Wrapping native checkboxes alongside their visible text inside a `<label>` tag significantly increases the clickable hit area, making interaction much easier for users (especially those on touch devices or with motor impairments). Moreover, explicitly declaring `aria-label` for bare inputs ensures accessibility tools can decipher them, and typos in Vue dynamic styles (e.g. `line-trought`) fail silently affecting feedback.
+**Action:** Always wrap checkboxes inside a <label> and explicitly verify Vue dynamic CSS property bindings for correctness since they don't produce build errors.
