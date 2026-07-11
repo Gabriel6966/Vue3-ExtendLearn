@@ -1,0 +1,3 @@
+## 2024-07-25 - Improve Checkbox Hit Areas and Native Input Labels
+**Learning:** In Vue, native HTML inputs (`<input>`, `<select>`) bound to `v-model` do not automatically receive accessible labels. Also, checkboxes are difficult to click unless wrapped in a `<label>` element with their descriptive text. Furthermore, CSS property spellings in dynamic `:style` bindings fail silently if misspelled.
+**Action:** Always wrap checkboxes and their text in `<label>` tags to increase the clickable hit area, explicitly add `aria-label` to native inputs missing visible labels, and carefully verify CSS spellings in dynamic style bindings.
