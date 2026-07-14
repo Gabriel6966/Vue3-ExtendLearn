@@ -1,0 +1,3 @@
+## 2024-10-24 - Todo List Checkbox Hit Area and Accessibility
+**Learning:** In the Todo list component, checkboxes for tasks had very small clickable areas and lacked explicit associations with their text. Wrapping the checkbox and its text inside a single `<label>` element significantly increases the hit area, improving usability for motor-impaired users and on touch devices. Additionally, dynamic style bindings for visual states (like `line-through` for completed tasks) must be spelled correctly to provide the necessary visual feedback, as CSS typos fail silently.
+**Action:** Always wrap `input[type="checkbox"]` elements along with their descriptive text inside a `<label>` tag, and verify CSS property spelling in dynamic style bindings.
