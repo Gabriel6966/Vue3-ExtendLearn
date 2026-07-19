@@ -1,0 +1,3 @@
+## 2026-07-19 - Wrapping checkboxes in labels increases hit area and accessibility
+**Learning:** In the Todo view, the checkboxes and their text labels were separate, requiring precise clicks on the small checkbox to toggle state, and lacked programmatic association for screen readers. Furthermore, dynamic CSS binding using `style` fails silently on typos (e.g., `text-decoration:line-trought`).
+**Action:** Always wrap native `<input type="checkbox">` elements and their descriptive text within a `<label>` tag to significantly increase the clickable hit area and associate the text with the input. Verify dynamic CSS property spellings explicitly.
