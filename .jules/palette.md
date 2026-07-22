@@ -1,0 +1,3 @@
+## 2024-07-22 - Increase Checkbox Hit Area
+**Learning:** Checkboxes by themselves have small hit areas, which are hard to tap or click. Wrapping the `input[type="checkbox"]` and its descriptive text in a `<label>` significantly increases the clickable area, improving accessibility. Also, dynamic CSS bindings (e.g. `:style`) do not throw errors on typos (like `line-trought` instead of `line-through`), requiring careful review.
+**Action:** Always wrap checkboxes and their text inside `<label>` elements.
