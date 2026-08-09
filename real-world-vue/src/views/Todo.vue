@@ -48,21 +48,21 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
-      <select v-model="newTask.type">
+      <input aria-label="Nombre de la tarea" v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <select aria-label="Tipo de tarea" v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
-      <button @click="addTask">Añadir</button>
+      <button :disabled="!newTask.label.trim()" @click="addTask">Añadir</button>
     </div>
 
     <div>
-      <button @click="listFilter = 'all'">Todas</button>
-      <button @click="listFilter = 'complete'">Completadas</button>
-      <button @click="listFilter = 'incomplete'">Incompletas</button>
+      <button :aria-pressed="listFilter === 'all' ? 'true' : 'false'" @click="listFilter = 'all'">Todas</button>
+      <button :aria-pressed="listFilter === 'complete' ? 'true' : 'false'" @click="listFilter = 'complete'">Completadas</button>
+      <button :aria-pressed="listFilter === 'incomplete' ? 'true' : 'false'" @click="listFilter = 'incomplete'">Incompletas</button>
     </div>
 
-    <select v-model="newTask.priority">
+    <select aria-label="Prioridad de la tarea" v-model="newTask.priority">
       <option value="alto">Alta</option>
       <option value="mediano">Media</option>
       <option value="bajo">Baja</option>
@@ -70,7 +70,7 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
+        <input aria-label="Marcar tarea como completada" type="checkbox" v-model="task.isComplete" />
         <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
           {{ task.label }} - {{ task.type }} -{{ task.priority }}
         </span>
