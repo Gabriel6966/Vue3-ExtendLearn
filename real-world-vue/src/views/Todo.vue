@@ -70,11 +70,22 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
-          {{ task.label }} - {{ task.type }} -{{ task.priority }}
-        </span>
+        <label class="task-label">
+          <input type="checkbox" v-model="task.isComplete" />
+          <span :style="task.isComplete ? 'text-decoration:line-through' : ''">
+            {{ task.label }} - {{ task.type }} -{{ task.priority }}
+          </span>
+        </label>
       </li>
     </ul>
   </div>
 </template>
+
+<style scoped>
+.task-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+</style>
