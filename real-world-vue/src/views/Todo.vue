@@ -28,10 +28,15 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      // Security: Validate input length to prevent empty tasks and limit string size
+      if (!state.newTask.label.trim() || state.newTask.label.length > 255) {
+        return;
+      }
       state.taskItems.push({
         ...state.newTask,
         isComplete: false,
       })
+      state.newTask.label = '';
     }
 
     return {
