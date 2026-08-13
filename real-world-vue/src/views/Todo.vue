@@ -56,10 +56,10 @@ export default defineComponent({
       <button @click="addTask">Añadir</button>
     </div>
 
-    <div>
-      <button @click="listFilter = 'all'">Todas</button>
-      <button @click="listFilter = 'complete'">Completadas</button>
-      <button @click="listFilter = 'incomplete'">Incompletas</button>
+    <div role="group" aria-label="Filtrar tareas">
+      <button @click="listFilter = 'all'" :aria-pressed="listFilter === 'all'">Todas</button>
+      <button @click="listFilter = 'complete'" :aria-pressed="listFilter === 'complete'">Completadas</button>
+      <button @click="listFilter = 'incomplete'" :aria-pressed="listFilter === 'incomplete'">Incompletas</button>
     </div>
 
     <select v-model="newTask.priority">
@@ -70,10 +70,12 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
-          {{ task.label }} - {{ task.type }} -{{ task.priority }}
-        </span>
+        <label>
+          <input type="checkbox" v-model="task.isComplete" />
+          <span :style="task.isComplete ? 'text-decoration:line-through' : ''">
+            {{ task.label }} - {{ task.type }} -{{ task.priority }}
+          </span>
+        </label>
       </li>
     </ul>
   </div>
