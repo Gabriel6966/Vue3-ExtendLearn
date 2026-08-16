@@ -1,7 +1,6 @@
 @import './base.css';
 
-
-:root{
+:root {
   --color-background: #1e293b !important;
   --vt-c-white: #1e293b !important;
 
@@ -10,18 +9,17 @@
   --color-border: #334155 !important;
 }
 
-@media(prefers-color-scheme: dark){
-  :root{
+@media (prefers-color-scheme: dark) {
+  :root {
     --color-background: #1e293b !important;
   }
 }
 
-body{
+body {
   background-color: var(--color-background) !important;
   margin: 0;
-  color:var(--color-text) !important;
+  color: var(--color-text) !important;
   transition: background-color 0.3s ease;
-
 }
 #layout {
   max-width: 1280px;
@@ -29,24 +27,26 @@ body{
   padding: 2rem;
   font-weight: normal;
 
-  h1,h2,h3{
+  h1,
+  h2,
+  h3 {
     color: var(--color-heading);
     margin-bottom: 1rem;
   }
-  a{
+  a {
     color: #94a3b8;
-    &:hover{
-      color:#ffffff
+    &:hover {
+      color: #ffffff;
     }
   }
-  .green{
-    color:#42b883;
+  .green {
+    color: #42b883;
     font-weight: bold;
   }
-  .layout-container{
+  .layout-container {
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0,0.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
     padding: 20px;
   }
 }
@@ -58,15 +58,15 @@ a,
   transition: 0.4s;
   padding: 3px;
   /*Ponemos dentro el hover por que usamos nesting*/
-  &:hover{
+  &:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
-.events{
+.events {
   border: 1px solid var(--color-border);
   padding: 15px;
   border-radius: 8px;
-  background-color: rgba(255, 255,255,0.05);
+  background-color: rgba(255, 255, 255, 0.05);
   margin-bottom: 10px;
 }
 
