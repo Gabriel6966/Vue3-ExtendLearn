@@ -1,0 +1,3 @@
+## 2024-05-28 - Missing Form Input Semantics and Disabled States
+**Learning:** In Vue `v-model` form components lacking native `<form>` tags, users are often able to add empty entries, and visually impaired users lack context for form fields (especially select inputs and checkboxes without clear labels). Empty submission states must be disabled, inputs must reset after action, and screen readers need `aria-label`s.
+**Action:** Always add `aria-label` to form fields lacking explicit `<label>` elements, implement empty-state checks to disable primary action buttons, and provide input reset logic post-submission.
