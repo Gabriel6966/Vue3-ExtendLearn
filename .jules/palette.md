@@ -1,0 +1,3 @@
+## 2024-08-22 - [Clickable Area and Visual Feedback in Checkboxes]
+**Learning:** In Todo.vue, tasks were implemented with isolated checkboxes, making the clickable area tiny. Furthermore, a typo in the inline style (`text-decoration:line-trought`) prevented visual feedback (strikethrough) when a task was completed. Wrapping the checkbox and label text inside a `<label>` with `cursor: pointer` drastically improves interaction accessibility. This is a common pattern to look out for in other components.
+**Action:** Ensure that input elements (like checkboxes/radios) and their corresponding text are wrapped in `<label>` tags to increase the clickable area. Always test visual feedback styles (like strikethrough) manually or with assertions to catch CSS typos.
