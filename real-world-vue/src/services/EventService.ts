@@ -6,6 +6,7 @@ import axios from 'axios'
 const apiClient = axios.create({
   //La url que llamamos
   baseURL: 'http://localhost:3000',
+  timeout: 10000, // Security: Add timeout to prevent resource exhaustion and hanging requests
   //Autenticacion y configuracion para comunicarnos con nuestro server
   withCredentials: false,
   headers: {
