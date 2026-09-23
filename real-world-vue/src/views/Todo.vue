@@ -48,12 +48,12 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
-      <select v-model="newTask.type">
+      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" aria-label="Nombre de la tarea" />
+      <select v-model="newTask.type" aria-label="Tipo de tarea">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
-      <button @click="addTask">Añadir</button>
+      <button @click="addTask" aria-label="Añadir nueva tarea">Añadir</button>
     </div>
 
     <div>
@@ -70,11 +70,14 @@ export default defineComponent({
 
     <ul>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
+        <input type="checkbox" v-model="task.isComplete" aria-label="Marcar como completada" />
+        <span :style="task.isComplete ? 'text-decoration: line-through;' : ''">
           {{ task.label }} - {{ task.type }} -{{ task.priority }}
         </span>
       </li>
     </ul>
+    <div v-if="filteredTasks.length === 0">
+      No hay tareas
+    </div>
   </div>
 </template>
