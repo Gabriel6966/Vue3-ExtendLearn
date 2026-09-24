@@ -68,12 +68,15 @@ export default defineComponent({
       <option value="bajo">Baja</option>
     </select>
 
-    <ul>
+    <div v-if="filteredTasks.length === 0">
+      <span>No hay tareas. ¡Añade una arriba!</span>
+    </div>
+    <ul v-else>
       <li v-for="(task, index) in filteredTasks" :key="index">
-        <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
-          {{ task.label }} - {{ task.type }} -{{ task.priority }}
-        </span>
+        <input :id="'task-' + index" type="checkbox" v-model="task.isComplete" />
+        <label :for="'task-' + index" :style="task.isComplete ? 'text-decoration:line-through' : ''">
+          {{ task.label }} - {{ task.type }} - {{ task.priority }}
+        </label>
       </li>
     </ul>
   </div>
