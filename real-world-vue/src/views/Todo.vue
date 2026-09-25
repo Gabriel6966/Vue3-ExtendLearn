@@ -76,5 +76,6 @@ export default defineComponent({
         </span>
       </li>
     </ul>
+    <h3 v-if="filteredTasks.length === 0">No hay tareas.</h3>
   </div>
 </template>
