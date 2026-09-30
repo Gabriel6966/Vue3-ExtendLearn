@@ -28,6 +28,9 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      if (state.newTask.label.length > 200) {
+        return; // Prevent adding tasks that exceed length limit
+      }
       state.taskItems.push({
         ...state.newTask,
         isComplete: false,
@@ -48,7 +51,7 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" maxlength="200" />
       <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
