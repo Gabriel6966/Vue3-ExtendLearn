@@ -1,0 +1,3 @@
+## 2024-05-24 - Empty States and CSS Contrast
+**Learning:** When adding empty states to `real-world-vue`, the global `#layout` wrapper forces text color to `#2c3e50`. If plain `<div>` or `<span>` elements are used for empty states, they inherit this dark color and can fail contrast checks on dark mode backgrounds. However, heading tags (e.g., `<h3>`) within `#layout` inherit `var(--color-heading)` (which is typically `#ffffff` in dark mode).
+**Action:** When adding text elements like empty states without using custom CSS classes, prefer using semantic heading tags (like `<h3>`) to ensure they correctly inherit the theme's heading color and remain readable, rather than plain `<div>` elements.
