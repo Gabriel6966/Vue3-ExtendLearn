@@ -28,8 +28,15 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      // Security: Validate and sanitize input to prevent empty or excessively long tasks
+      const sanitizedLabel = state.newTask.label.trim()
+      if (!sanitizedLabel || sanitizedLabel.length > 255) {
+        return
+      }
+
       state.taskItems.push({
         ...state.newTask,
+        label: sanitizedLabel,
         isComplete: false,
       })
     }
@@ -48,7 +55,7 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <input v-model="newTask.label" type="text" maxlength="255" placeholder="Añadir tarea" />
       <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
