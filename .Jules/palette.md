@@ -1,0 +1,3 @@
+## 2024-05-18 - Todo Empty State Visibility
+**Learning:** In the `real-world-vue` project, the `#layout` element forces a global text color `#2c3e50`. If we add plain empty states like `<div>No hay tareas</div>`, they fail color contrast checks when the app renders on dark backgrounds (like the dark mode we tested). Heading tags (`<h1>`-`<h6>`) within `#layout` explicitly inherit `var(--color-heading)` (`#ffffff`), making them properly readable.
+**Action:** When adding simple text elements (like empty states) without applying custom CSS classes, use heading tags (e.g., `<h3>`) instead of `<div>` or `<span>` to ensure the text is visible against the global background color.
