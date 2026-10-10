@@ -1,0 +1,3 @@
+## 2024-10-10 - Checkbox Hit Areas
+**Learning:** The Todo lists in this application placed the `<input type="checkbox">` and its text side-by-side but untethered. This caused the hit area for the checkbox to be extremely small and didn't associate the label text with the checkbox for screen readers.
+**Action:** Wrapping both the input and the descriptive text inside a single `<label>` element natively associates the text with the checkbox, expanding the clickable area to include the text and improving accessibility without requiring manual `id` and `for` attributes. Adding a pointer cursor reinforces interactivity.
