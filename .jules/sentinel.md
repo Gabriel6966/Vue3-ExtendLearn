@@ -1,4 +1,4 @@
-## 2024-05-24 - Path Traversal / SSRF Prevention
-**Vulnerability:** Dynamic route parameters appended directly to Axios API URLs without sanitization.
-**Learning:** Vue Router parameters are passed as strings at runtime, even if typed as numbers. Direct concatenation can lead to Path Traversal or SSRF vulnerabilities if the API base URL is manipulated.
-**Prevention:** Always sanitize dynamic inputs using `encodeURIComponent()` before appending them to API URLs.
+## 2023-10-27 - Added timeout to Axios API calls
+**Vulnerability:** Missing timeout configurations for the external API client.
+**Learning:** The application was vulnerable to hanging indefinitely if the external API endpoint became slow or unresponsive, which could degrade user experience or cause a client-side denial of service. The centralized Axios instance configuration was an ideal place to apply a global timeout.
+**Prevention:** Always define reasonable timeouts (e.g., 5000ms) for external network requests to fail fast and degrade gracefully.
