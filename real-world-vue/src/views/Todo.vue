@@ -28,10 +28,21 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      // Security: Validate input and enforce length limits
+      // Prevents empty submissions and client-side DoS/UI degradation
+      const sanitizedLabel = state.newTask.label.trim()
+      if (!sanitizedLabel || sanitizedLabel.length > 150) {
+        return
+      }
+
       state.taskItems.push({
         ...state.newTask,
+        label: sanitizedLabel,
         isComplete: false,
       })
+
+      // Clear the input after adding
+      state.newTask.label = ''
     }
 
     return {
