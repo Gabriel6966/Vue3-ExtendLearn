@@ -28,10 +28,20 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      // Security: Add input length limits and validation to prevent DoS/UX issues
+      const sanitizedLabel = state.newTask.label.trim()
+      if (!sanitizedLabel || sanitizedLabel.length > 200) {
+        return
+      }
+
       state.taskItems.push({
         ...state.newTask,
+        label: sanitizedLabel,
         isComplete: false,
       })
+
+      // Clear input after adding
+      state.newTask.label = ''
     }
 
     return {
@@ -48,7 +58,8 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <!-- Security: Add maxlength attribute for defense in depth against overly long inputs -->
+      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" maxlength="200" />
       <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
