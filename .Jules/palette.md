@@ -1,0 +1,3 @@
+## 2024-10-14 - Improve Todo List Accessibility and Empty State
+**Learning:** Wrapping task text in `<label>` elements and associating them with checkboxes via `for`/`id` significantly improves the hit area and accessibility. Providing an empty state ("No hay tareas") when a list is empty helps guide users and prevents confusion. Also, typos in CSS properties (like `line-trought`) can break visual feedback.
+**Action:** Always ensure list items with checkboxes use proper `<label>` associations for larger click targets. Implement empty states for dynamic lists to improve clarity when data is absent. Double-check CSS property spelling.
