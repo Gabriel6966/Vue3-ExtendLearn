@@ -28,10 +28,12 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      if (!state.newTask.label.trim()) return;
       state.taskItems.push({
         ...state.newTask,
         isComplete: false,
       })
+      state.newTask.label = '';
     }
 
     return {
@@ -48,12 +50,12 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" aria-label="Task label" @keyup.enter="addTask" />
       <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
-      <button @click="addTask">Añadir</button>
+      <button @click="addTask" :disabled="!newTask.label.trim()">Añadir</button>
     </div>
 
     <div>
@@ -69,9 +71,10 @@ export default defineComponent({
     </select>
 
     <ul>
+      <li v-if="filteredTasks.length === 0"><h3>No hay tareas</h3></li>
       <li v-for="(task, index) in filteredTasks" :key="index">
         <input type="checkbox" v-model="task.isComplete" />
-        <span :style="task.isComplete ? 'text-decoration:line-trought' : ''">
+        <span :style="task.isComplete ? 'text-decoration:line-through; opacity: 0.6' : ''">
           {{ task.label }} - {{ task.type }} -{{ task.priority }}
         </span>
       </li>
