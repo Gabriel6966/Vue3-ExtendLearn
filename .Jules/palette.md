@@ -1,0 +1,3 @@
+## 2024-05-24 - Added Empty States and ARIA Labels to Todo.vue
+**Learning:** When a list is filtered or empty, the lack of visual feedback creates confusion. By providing an explicit `<h3>` empty state that inherits `--color-heading`, we ensure both semantic structure and proper dark mode contrast without hardcoded colors. Fixing the `line-trought` to `line-through` CSS typo instantly restores visual feedback on completed tasks.
+**Action:** Always include empty states for lists/tables that can be filtered or emptied. Check for valid CSS syntax in inline styles, as invalid values fail silently in Vue. Use ARIA labels on filtering controls for better screen reader context.
