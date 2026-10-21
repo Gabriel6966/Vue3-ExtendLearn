@@ -28,6 +28,11 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      // Security: Validate input length to prevent state bloat/DoS risks
+      if (state.newTask.label.length > 100) {
+        alert('La tarea es demasiado larga (max 100 caracteres)')
+        return
+      }
       state.taskItems.push({
         ...state.newTask,
         isComplete: false,
@@ -48,7 +53,7 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <input v-model="newTask.label" type="text" maxlength="100" placeholder="Añadir tarea" />
       <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
