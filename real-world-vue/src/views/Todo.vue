@@ -48,8 +48,8 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
-      <select v-model="newTask.type">
+      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" aria-label="Añadir tarea" />
+      <select v-model="newTask.type" aria-label="Tipo de tarea">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
       </select>
@@ -62,7 +62,7 @@ export default defineComponent({
       <button @click="listFilter = 'incomplete'">Incompletas</button>
     </div>
 
-    <select v-model="newTask.priority">
+    <select v-model="newTask.priority" aria-label="Prioridad de la tarea">
       <option value="alto">Alta</option>
       <option value="mediano">Media</option>
       <option value="bajo">Baja</option>
