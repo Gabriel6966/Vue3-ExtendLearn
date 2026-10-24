@@ -1,0 +1,3 @@
+## 2024-10-24 - Semantic HTML and Empty States in Todo List
+**Learning:** The Todo list components lacked fundamental form accessibility (missing `aria-label`s on selects/inputs, checkbox not wrapped in a `<label>`) and provided poor UX when the list was empty. Also, CSS classes like `line-through` were misspelled (`line-trought`), preventing correct visual state rendering.
+**Action:** Always wrap task text and checkboxes in semantic `<label>` elements so the text is clickable. Provide explicit `aria-label`s for form controls lacking visible labels, use `aria-pressed` for filter buttons, and ensure empty states explicitly guide the user rather than showing a blank screen.
