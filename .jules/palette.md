@@ -1,0 +1,6 @@
+## 2024-11-07 - Improved Form Accessibility and Typo Fix in Todo List
+**Learning:** Inputs without `<label>` elements or `aria-label` attributes are highly inaccessible, and wrapping text next to a checkbox inside a `<label>` significantly increases the hit area, satisfying Fitts's Law. Also found a CSS typo (`line-trought` instead of `line-through`) which broke visual feedback for completed tasks.
+**Action:** When auditing forms, ensure all inputs have accessible names (via `aria-label` if a visible `<label>` is not present) and that checkboxes/radios wrap their adjacent text in `<label>` tags. Also verify that inline CSS syntax for visual feedback is correct.
+## 2024-11-07 - Improved Form Accessibility and Typo Fix in Todo List
+**Learning:** Inputs without `<label>` elements or `aria-label` attributes are highly inaccessible, and wrapping text next to a checkbox inside a `<label>` significantly increases the hit area, satisfying Fitts's Law. Also found a CSS typo (`line-trought` instead of `line-through`) which broke visual feedback for completed tasks.
+**Action:** When auditing forms, ensure all inputs have accessible names (via `aria-label` if a visible `<label>` is not present) and that checkboxes/radios wrap their adjacent text in `<label>` tags. Also verify that inline CSS syntax for visual feedback is correct.
