@@ -28,8 +28,11 @@ export default defineComponent({
     })
 
     const addTask = () => {
+      const trimmedLabel = state.newTask.label.trim()
+      if (!trimmedLabel || trimmedLabel.length > 100) return
       state.taskItems.push({
         ...state.newTask,
+        label: trimmedLabel,
         isComplete: false,
       })
     }
@@ -48,7 +51,7 @@ export default defineComponent({
     <h1>Todo List</h1>
 
     <div>
-      <input v-model="newTask.label" type="text" placeholder="Añadir tarea" />
+      <input v-model="newTask.label" type="text" maxlength="100" placeholder="Añadir tarea" />
       <select v-model="newTask.type">
         <option value="personal">Personal</option>
         <option value="work">Trabajo</option>
