@@ -1,0 +1,3 @@
+## 2024-05-24 - Semantic Wrapping for Hit Areas
+**Learning:** Wrapping checkbox inputs and their associated text within a semantic `<label>` element significantly increases the clickable hit area, making interactions much more forgiving and accessible. Also, dynamic style bindings in Vue (like `v-bind:style`) will silently fail if you provide an invalid CSS property value (such as `line-trought` instead of `line-through`), requiring manual verification.
+**Action:** Always wrap `<input type="checkbox">` and its text in a `<label>` block by default for better Fitts's Law compliance. Always double-check standard CSS spelling for dynamic visual state bindings.

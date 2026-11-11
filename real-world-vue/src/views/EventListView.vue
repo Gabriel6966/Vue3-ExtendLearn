@@ -73,6 +73,7 @@ watch(
   </div>
   <div class="pagination">
     <router-link
+      aria-label="Previous Page"
       id="page-prev"
       :to="{ name: 'event-list', query: { page: page - 1 } }"
       rel="prev"
@@ -82,6 +83,7 @@ watch(
     </router-link>
 
     <router-link
+      aria-label="Next Page"
       id="page-next"
       :to="{ name: 'event-list', query: { page: page + 1 } }"
       rel="next"
